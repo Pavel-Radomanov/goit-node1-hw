@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "node.js homework#1",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
@@ -24,7 +23,7 @@
     "commander": "^10.0.1",
     "fs": "^0.0.1-security",
     "path": "^0.12.7",
-    "yargs": "^17.7.2"
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.22"
