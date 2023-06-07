@@ -1,7 +1,17 @@
-// console.log("Test Start");
 const { program } = require("commander");
 
 const contacts = require("./contacts.js");
+
+program
+  .option("-a, --action <type>", "choose action")
+  .option("-i, --id <type>", "user id")
+  .option("-n, --name <type>", "user name")
+  .option("-e, --email <type>", "user email")
+  .option("-p, --phone <type>", "user phone");
+
+program.parse(process.argv);
+
+const argv = program.opts();
 
 const invokeAction = async ({ action, id, name, email, phone }) => {
   switch (action) {
@@ -30,16 +40,10 @@ const invokeAction = async ({ action, id, name, email, phone }) => {
   }
 };
 
-program
-  .option("-a, --action <type>", "choose action")
-  .option("-i, --id <type>", "user id")
-  .option("-n, --name <type>", "user name")
-  .option("-e, --email <type>", "user email")
-  .option("-p, --phone <type>", "user phone");
+invokeAction(argv);
 
-program.parse();
-
-const options = program.opts();
-(async () => {
-  await invokeAction(options);
-})();
+// program.parse();
+// const options = program.opts();
+// (async () => {
+//   await invokeAction(options);
+// })();
